@@ -1,12 +1,23 @@
-import exampleIconUrl from "./noun-paperclip-7598668-00449F.png";
 import "./style.css";
 
 const button = document.createElement("button");
+button.innerHTML = "🐴";
+button.style.fontSize = "48px";
+document.body.appendChild(button);
+
+let counter: number = 0;
+const counter_label = document.createElement("div");
+counter_label.style.fontSize = "24px";
+counter_label.style.marginTop = "10px";
+counter_label.innerHTML = `${counter} horsies`;
+document.body.appendChild(counter_label);
 
 button.addEventListener("click", function () {
-  alert("Button pressed");
+  counter += 1;
+  counter_label.innerHTML = `${counter} horsies`;
 });
 
-document.body.innerHTML = `
-  <p>Example image asset: <img src="${exampleIconUrl}" class="icon" /></p>
-`;
+setInterval(() => {
+  counter += 1;
+  counter_label.innerHTML = `${counter} horsies`;
+}, 1000);
