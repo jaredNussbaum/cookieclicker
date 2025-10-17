@@ -26,7 +26,7 @@ button.addEventListener("click", function () {
   counter_label.innerHTML = `${counter} horsies`;
 }, 1000);*/
 
-let horsie_generation = 0;
+const horsie_generation = 0;
 
 let lastTime = performance.now();
 
