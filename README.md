@@ -1,3 +1,3 @@
 # CMPM 121 D1 Project
 
-Cookie clicker project! Click thwe cookie!
+Horsie clicker project! Click thwe horsie!
