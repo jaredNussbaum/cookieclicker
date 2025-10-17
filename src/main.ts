@@ -17,7 +17,7 @@ button.addEventListener("click", function () {
   counter_label.innerHTML = `${counter} horsies`;
 });
 
-setInterval(() => {
+setInterval(() => { //constant tick rate
   counter += 1;
   counter_label.innerHTML = `${counter} horsies`;
 }, 1000);
