@@ -83,6 +83,14 @@ const upgrades: item[] = [
     description: "The ultimate fate of all Horsies",
     button,
   },
+  {
+    name: "Horsie Heavens",
+    cost: 4000,
+    rate: 50,
+    count: 0,
+    description: "Fly high Horsies!",
+    button,
+  },
 ];
 
 upgrades.forEach((item) => {
@@ -101,7 +109,6 @@ upgrades.forEach((item) => {
   document.body.appendChild(description);
 
   item.button = item_button;
-
   item_button.addEventListener("click", () => {
     if (counter >= item.cost) {
       counter -= item.cost;
