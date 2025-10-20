@@ -30,7 +30,7 @@ button.addEventListener("click", function () {
   check_horsie_upgrades();
 });
 
-const horsie_exponent = 1.3;
+const horsie_exponent = 1.25;
 let horsie_generation = 0;
 
 interface item {
