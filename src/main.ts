@@ -1,4 +1,7 @@
 import "./style.css";
+// #####################
+// CREATE HTML ELEMENTS
+// #####################
 
 const button = document.createElement("button");
 button.innerHTML = "🐴";
@@ -19,20 +22,21 @@ HPS_display.style.marginTop = "10px";
 HPS_display.innerHTML = `+ ${HPS} Horsies per Second`;
 document.body.appendChild(HPS_display);
 
-function update_horsie_label() {
-  counter_label.innerHTML = `${Math.trunc(counter)} horsies`;
-  upadate_HPS();
-}
-
 button.addEventListener("click", function () {
   counter += 1;
   update_horsie_label();
   check_horsie_upgrades();
 });
 
+// #####################
+// UPGRADES
+// #####################
+
 const horsie_exponent = 1.25;
+
 let horsie_generation = 0;
 
+//Base horsie item
 interface item {
   name: string;
   cost: number;
@@ -41,7 +45,7 @@ interface item {
   description: string;
   button?: HTMLButtonElement;
 }
-
+// List of upgrades items purchasable with horsies, exponential in nature
 const upgrades: item[] = [
   {
     name: "Horsies",
@@ -123,6 +127,16 @@ upgrades.forEach((item) => {
   });
 });
 
+function update_horsie_label() {
+  counter_label.innerHTML = `${Math.trunc(counter)} horsies`;
+  upadate_HPS();
+}
+
+// #####################
+// GAMEPLAY LOOP HELPER FUNCTIONS
+// #####################
+
+// checks if upgrades can be purchased
 function check_horsie_upgrades() {
   upgrades.forEach((item) => {
     if (counter >= item.cost) {
@@ -132,13 +146,20 @@ function check_horsie_upgrades() {
     }
   });
 }
-
+// updates number of horsies earned per second idly
 function upadate_HPS() {
   HPS = horsie_generation;
   HPS_display.innerHTML = `+ ${Math.round(HPS * 10) / 10} Horsies per Second`; // found on stack overflow, rounding algo
 }
 
 let lastTime = performance.now();
+
+// #####################
+// GAMEPLAY LOOP HELPER FUNCTIONS
+// #####################
+
+// Runs once per frame refresh and calls each function within every time.
+// This is similar to the best practices in Godot, my engine of choice.
 function horsie_process(currentTime: number) { // HPS = horsies per second
   const deltaTime = (currentTime - lastTime) / 1000;
   lastTime = currentTime;
