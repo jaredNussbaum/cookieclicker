@@ -1,4 +1,8 @@
 import "./style.css";
+
+// Background inspiration: Alexander Mercer
+// Centering of the webpage inspiration: Danny Htin
+
 // #####################
 // CREATE HTML ELEMENTS
 // #####################
